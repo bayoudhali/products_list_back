@@ -1,7 +1,8 @@
 import Product, { IProduct } from "../models/product";
+import { IProductCreate } from "../types/productTypes";
 
 class ProductService {
-  async createProduct(data: IProduct) {
+  async createProduct(data: IProductCreate) {
     return Product.create(data);
   }
 
@@ -14,7 +15,7 @@ class ProductService {
     return Product.findById(id);
   }
 
-  async updateProduct(id: string, data: Partial<IProduct>) {
+  async updateProduct(id: string, data: Partial<IProductCreate>) {
     return Product.findByIdAndUpdate(id, data, { new: true });
   }
 
